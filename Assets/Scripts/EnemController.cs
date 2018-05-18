@@ -14,14 +14,14 @@ public class EnemController : MonoBehaviour
     {
         delta = 0.0f;
         projectialDir = new Vector3(-1, 0, 0);
-        projectialSpeed = 100;
+        projectialSpeed = 1000;
     }
 
     // Update is called once per frame
     void Update()
     {
         delta += Time.deltaTime;
-        Debug.Log(delta);
+       
         if (delta >= 2)
         {
             delta = 0.0f;
