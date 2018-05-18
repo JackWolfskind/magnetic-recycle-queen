@@ -6,39 +6,77 @@ public class PlayerController : MonoBehaviour
 {
 
 	public Transform[] lanePoint;
+    [Range(0,1)]
+    private float delta;
+    private bool onMove;
+    private Vector3 currentPos;
+    private Vector3 targetPos;
 
-
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
 	{
-		int startLane = Random.Range(0,3);
-		transform.position = lanePoint[startLane].position;
+        int startLane = Random.Range(0,lanePoint.Length);
+        transform.position = lanePoint[startLane].position;
+        delta = 0.0f;
+        onMove = false;
+        
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void FixedUpdate () 
 	{
-        GetInput();
+       
+            if (!onMove)
+                GetInput();
+            else
+            {
+               delta += Time.deltaTime*5;
+               this.transform.position = Vector3.Lerp(currentPos, targetPos, delta);
+                Debug.Log(delta);
+                if(delta >= 1)
+                {
+                    onMove = false;
+                    delta = 0.0f;
+                    
+                }
+
+            }
+        
     }
 
     void GetInput()
     {
 
-
-        if(Input.GetKeyDown(KeyCode.Q))
-		transform.position = lanePoint[0].position;
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            targetPos = lanePoint[0].position;
+            currentPos = this.transform.position;
+            onMove = true;
+        }
+            
 
 		if(Input.GetKeyDown(KeyCode.W))
-		transform.position = lanePoint[1].position;
+        {
+            targetPos = lanePoint[1].position;
+            currentPos = this.transform.position;
+            onMove = true;
+        }
+            
 
 		if(Input.GetKeyDown(KeyCode.E))
-		transform.position = lanePoint[2].position; 
+        {
+            targetPos = lanePoint[2].position;
+            currentPos = this.transform.position;
+            onMove = true;
+        }
+            
     }
-    private void OnTriggerEnter(Collider other)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-            if (other.tag == "projectial")
-            {
-                Destroy(other.gameObject);
-            }
+        if (collision.tag == "Projectial")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

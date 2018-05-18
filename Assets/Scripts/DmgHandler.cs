@@ -15,8 +15,4 @@ public class DmgHandler : MonoBehaviour {
         }
 
     }
-    private void OnTriggerEnter(Collider other)
-    {
-       
-    }
 }

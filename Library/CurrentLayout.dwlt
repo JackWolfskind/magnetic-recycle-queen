@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 392}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 342}
   m_MaxSize: {x: 12008, y: 8042}
   vertical: 0
-  controlID: 54
+  controlID: 11
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 342}
   m_MaxSize: {x: 8006, y: 8042}
   vertical: 1
-  controlID: 55
+  controlID: 12
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 56
+  controlID: 13
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -370,9 +370,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 62280000
-    m_LastClickedID: 10338
-    m_ExpandedIDs: 98fbffff000000003a280000402800004a2800005828000062280000
+    m_SelectedIDs: 64280000
+    m_LastClickedID: 10340
+    m_ExpandedIDs: 98fbffff00000000422800004c2800005a28000064280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -417,8 +417,8 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: -31700
-    y: -31951
+    x: 308
+    y: 100
     width: 1768
     height: 897
   m_PersistentViewDataDictionary: {fileID: 0}
@@ -428,9 +428,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.4002247, y: 0.80820465, z: 20.174992}
+    m_Target: {x: -0.4564733, y: -5.5376906, z: 23.144527}
     speed: 2
-    m_Value: {x: -0.4002247, y: 0.80820465, z: 20.174992}
+    m_Value: {x: -0.4564733, y: -5.5376906, z: 23.144527}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -454,13 +454,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.018035833, y: 0.1748946, z: -0.003203315, w: 0.9844168}
+    m_Target: {x: -0.12747137, y: -0.003304127, z: 0.0004231882, w: -0.9918368}
     speed: 2
-    m_Value: {x: 0.018035833, y: 0.1748946, z: -0.003203315, w: 0.9844168}
+    m_Value: {x: -0.12747136, y: -0.0033041264, z: 0.00042318815, w: -0.99183667}
   m_Size:
-    m_Target: 29.827316
+    m_Target: 34.03792
     speed: 2
-    m_Value: 29.827316
+    m_Value: 34.03792
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -581,33 +581,33 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts
+    - Assets/Sprites
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Sprites
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Noiz\Documents\GitHub\magnetic-recycle-queen
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 08280000
-    m_LastClickedID: 10248
-    m_ExpandedIDs: 000000008a2700000828000000ca9a3bffffff7f
+    m_SelectedIDs: 8e270000
+    m_LastClickedID: 10126
+    m_ExpandedIDs: 000000008a2700008e2700000a28000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Prefabs
-      m_OriginalName: Prefabs
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 10166
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
@@ -621,7 +621,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008a27000008280000
+    m_ExpandedIDs: 000000008a2700000a280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -646,10 +646,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: f0070000
-    m_LastClickedInstanceID: 2032
+    m_SelectedInstanceIDs: 96fbffff
+    m_LastClickedInstanceID: -1130
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c62300000074feff92270000d6270000e8430000b02b00002452000022700000ac2d00002a35ffffe6c8fdffcaf9faffda320000b42d0000ec2d0000ee2d0000fe2c0000b86dffffa8290000a62d00003404f6ff202c0000b6350000482e00007629000012570000bc290000a22a00007ae8f1ff685d00009856000088ae000000000000
+    m_ExpandedInstanceIDs: c62300000074feff92270000d6270000e8430000b02b00002452000022700000ac2d00002a35ffffe6c8fdffcaf9faffda320000b42d0000ec2d0000ee2d0000fe2c0000b86dffffa8290000a62d00003404f6ff202c0000b6350000482e00007629000012570000bc290000a22a00007ae8f1ff685d00009856000088ae00000628000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

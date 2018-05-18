@@ -6,8 +6,10 @@ public class EnemController : MonoBehaviour
 {
     public GameObject[] projectialArray;
     public Transform[] spawnpointArray;
+
     private Vector3 projectialDir;
     private int projectialSpeed;
+
 
     private float delta;
     void Start()
@@ -32,7 +34,8 @@ public class EnemController : MonoBehaviour
 
     private void spawnProjectial()
     {
-        GameObject g = Instantiate(projectialArray[0], spawnpointArray[Random.Range(0, projectialArray.Length)]);
+       
+        GameObject g = Instantiate(projectialArray[0], spawnpointArray[Random.Range(0, spawnpointArray.Length)]);
         g.GetComponent<Rigidbody2D>().AddForce(projectialDir * projectialSpeed);
     }
 }
