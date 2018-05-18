@@ -663,9 +663,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 0b40c114-9428-42d5-a412-a2947b93e410
+  cloudProjectId: 78374a75-4e88-4ee9-819c-c0674a3004a3
   projectName: beansjam
-  organizationId: jackwolfskind
+  organizationId: tibor-stachoske
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

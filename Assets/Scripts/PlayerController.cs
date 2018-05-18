@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
-	public Transform [] lanePoint;
+	public Transform[] lanePoint;
+
 
 	// Use this for initialization
 	void Start () 
@@ -14,17 +16,27 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void FixedUpdate () 
 	{
+        GetInput();
+    }
 
-		if(Input.GetKey(KeyCode.Q))
+    void GetInput()
+    {
+        if(Input.GetKey(KeyCode.Q))
 		transform.position = lanePoint[0].position;
 
 		if(Input.GetKeyDown(KeyCode.W))
 		transform.position = lanePoint[1].position;
 
 		if(Input.GetKeyDown(KeyCode.E))
-		transform.position = lanePoint[2].position;
-		
-	}
+		transform.position = lanePoint[2].position; 
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+            if (other.tag == "projectial")
+            {
+                Destroy(other.gameObject);
+            }
+    }
 }
