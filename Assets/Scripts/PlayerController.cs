@@ -16,14 +16,16 @@ public class PlayerController : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () 
+	void Update () 
 	{
         GetInput();
     }
 
     void GetInput()
     {
-        if(Input.GetKey(KeyCode.Q))
+
+
+        if(Input.GetKeyDown(KeyCode.Q))
 		transform.position = lanePoint[0].position;
 
 		if(Input.GetKeyDown(KeyCode.W))
