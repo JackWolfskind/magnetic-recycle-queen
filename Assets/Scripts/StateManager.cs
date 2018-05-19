@@ -62,7 +62,6 @@ public class StateManager : MonoBehaviour
 
         if(collision.tag == "BadProjectial")
         {
-            Destroy(collision.gameObject);
             damage(20);
         }
     }

@@ -1232,6 +1232,30 @@ Prefab:
       propertyPath: panelGameOver
       value: 
       objectReference: {fileID: 876362224}
+    - target: {fileID: 61225254450893716, guid: 7560ced0a6c6eb44baf39662c3893e55,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 12.195953
+      objectReference: {fileID: 0}
+    - target: {fileID: 61225254450893716, guid: 7560ced0a6c6eb44baf39662c3893e55,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 280.72223
+      objectReference: {fileID: 0}
+    - target: {fileID: 61225254450893716, guid: 7560ced0a6c6eb44baf39662c3893e55,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -3.6475792
+      objectReference: {fileID: 0}
+    - target: {fileID: 61225254450893716, guid: 7560ced0a6c6eb44baf39662c3893e55,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 215.06287
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970816193173678, guid: 7560ced0a6c6eb44baf39662c3893e55, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7560ced0a6c6eb44baf39662c3893e55, type: 2}
   m_IsPrefabParent: 0
