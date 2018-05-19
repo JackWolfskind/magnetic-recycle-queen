@@ -31,7 +31,6 @@ public class PlayerController : MonoBehaviour
             {
                delta += Time.deltaTime*6;
                this.transform.position = Vector3.Lerp(currentPos, targetPos, delta);
-                Debug.Log(delta);
                 if(delta >= 1)
                 {
                     onMove = false;
