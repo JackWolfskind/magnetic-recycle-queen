@@ -5,12 +5,16 @@ using UnityEngine;
 public class EnemController : MonoBehaviour
 {
     public GameObject[] projectialArray;
+
+    public Transform projectialSpawnPoint;
+
     public Transform[] spawnpointArray;
 
     private Vector3 projectialDir;
     private int projectialSpeed;
 
     private bool isMoving;
+
 
 
     private float deltaCharacter;
@@ -38,9 +42,7 @@ public class EnemController : MonoBehaviour
         if (deltaCharacter >= 0.4f)
         {
 
-            deltaProjectial += (int)(Mathf.Lerp(0.1f, 0.5f, 0.1f) * 10);
-            //Debug.Log("pro: " + deltaProjectial);
-            //Debug.Log("char: " + (int)(Mathf.Lerp(0.1f, 1.0f, 0.1f) * 10));
+            deltaProjectial += Random.Range(1, 5);
             if (deltaProjectial % Random.Range(1, 5) == 0)
             {
                 spawnProjectial();
@@ -58,7 +60,7 @@ public class EnemController : MonoBehaviour
 
     private void spawnProjectial()
     {
-        GameObject g = Instantiate(projectialArray[0], transform.position, Quaternion.identity);
+        GameObject g = Instantiate(projectialArray[0], projectialSpawnPoint.position, Quaternion.identity);
         g.GetComponent<Rigidbody2D>().AddForce(projectialDir * projectialSpeed);
     }
 }
