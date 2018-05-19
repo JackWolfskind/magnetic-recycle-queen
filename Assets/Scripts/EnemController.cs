@@ -10,32 +10,50 @@ public class EnemController : MonoBehaviour
     private Vector3 projectialDir;
     private int projectialSpeed;
 
+    private bool moveCharacter;
 
-    private float delta;
+
+    private float deltaCharacter;
+    private float deltaProjectial;
     void Start()
     {
-        delta = 0.0f;
+        deltaCharacter = 0.0f;
+        deltaProjectial = 0.0f;
         projectialDir = new Vector3(-1, 0, 0);
         projectialSpeed = 20000;
+        moveCharacter = true;
+        spawnCharacter();
     }
 
     // Update is called once per frame
     void Update()
     {
-        delta += Time.deltaTime;
-       
-        if (delta >= 2)
+        deltaCharacter += Time.deltaTime;
+        deltaProjectial += Time.deltaTime;
+
+        if (deltaCharacter >= 0.5) 
         {
-            delta = 0.0f;
-            spawnProjectial();
+            deltaCharacter = 0.0f;
+            spawnCharacter();
+        }
+        if (deltaProjectial >= 1)
+        {
+            deltaProjectial = 0.0f;
+            if (deltaProjectial % Random.Range(1, 4) == 0)
+            {
+                spawnProjectial();
+            }
         }
 
     }
 
+    private void spawnCharacter(){
+        transform.position = spawnpointArray[Random.Range(0, spawnpointArray.Length)].position;
+    }
+
     private void spawnProjectial()
     {
-       
-        GameObject g = Instantiate(projectialArray[0], spawnpointArray[Random.Range(0, spawnpointArray.Length)]);
+        GameObject g = Instantiate(projectialArray[0], transform.position, Quaternion.identity);
         g.GetComponent<Rigidbody2D>().AddForce(projectialDir * projectialSpeed);
     }
 }
