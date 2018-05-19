@@ -9,6 +9,8 @@ public class StateManager : MonoBehaviour
     public Slider healthSlider;
     public ParticleSystem[] pSystem;
     public GameObject panelGameOver;
+
+    public AudioSource catchSound;
     
     private int healthBarMax;
     private int trashCounter;
@@ -51,6 +53,7 @@ public class StateManager : MonoBehaviour
     {
         if (collision.tag == "Projectial")
         {
+            catchSound.Play();
             Destroy(collision.gameObject);
             // Punkte erhöhen sich und Text wird geupdated
             points.currpoints ++;

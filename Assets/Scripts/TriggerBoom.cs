@@ -8,7 +8,6 @@ public class TriggerBoom : MonoBehaviour {
 	public GameObject Character;
 	public Sprite BoomSprite;
 
-
 	void Start () {
 
 	}
@@ -17,8 +16,8 @@ public class TriggerBoom : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D collision) {
 		if(collision.tag == "Player")
 		{
-			Debug.Log("Triggerd");
 			gameObject.GetComponent<SpriteRenderer>().sprite = BoomSprite;
+			gameObject.GetComponent<AudioSource>().Play();
 			Invoke("Destroy", 0.2f);
 		}
 	}

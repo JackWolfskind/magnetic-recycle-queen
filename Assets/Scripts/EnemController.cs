@@ -12,26 +12,25 @@ public class EnemController : MonoBehaviour
 
     public Transform[] spawnpointArray;
 
-    private Vector3 projectialDir;
+    public AudioSource shootingSound;
+
+    private Vector3 projectialDir,curr,tar;
     private int projectialSpeed;
 
     private bool isMoving;
+    private float delta,factor;
 
-
-
-    private float deltaCharacter;
-    private int deltaProjectial;
 
 
     private float strifeDelta;
     void Start()
     {
-        deltaCharacter = 0.0f;
-        deltaProjectial = 0;
+        delta= 0.0f;
+        factor = 1.0f;
         strifeDelta = 0.0f;
         projectialDir = new Vector3(-1, 0, 0);
         projectialSpeed = 20000;
-        isMoving = true;
+        isMoving =false;
         transform.position = spawnpointArray[Random.Range(0, spawnpointArray.Length)].position;
         moveCharacter();
     }
@@ -39,30 +38,44 @@ public class EnemController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        deltaCharacter += Time.deltaTime;
-        int spawnRate = 7;
+        delta += Time.deltaTime* factor;
 
-        if (deltaCharacter >= 0.35f)
+        if (delta >= 1f && !isMoving)
         {
-
-            deltaProjectial += Random.Range(1, spawnRate);
-            if (deltaProjectial % Random.Range(1, spawnRate) == 0)
+            if (Random.Range(0, 100) >= 40)
             {
                 spawnProjectial();
-                deltaProjectial = 0;
+                isMoving = true;
+                
+                delta = 0.0f;
+                moveCharacter();
             }
-            moveCharacter();
-            deltaCharacter = 0.0f;
+
         }
+        else if (isMoving)
+        {
+
+            this.transform.position = Vector3.Lerp(curr,tar, delta);
+            if (delta >= 1f)
+            {
+                delta = 0.0f;
+                isMoving = false;
+
+            }
+                
+        }
+            
     }
 
     private void moveCharacter()
     {
-        this.transform.position = Vector3.Lerp(this.transform.position, spawnpointArray[Random.Range(0, spawnpointArray.Length)].position, deltaProjectial);
+        curr = this.transform.position;
+        tar = spawnpointArray[Random.Range(0, spawnpointArray.Length)].position;
     }
 
     private void spawnProjectial()
     {
+        this.shootingSound.Play();
         GameObject projectial = this.getRandomProjecial();
         GameObject g = Instantiate(projectial, projectialSpawnPoint.position, Quaternion.identity);
         g.GetComponent<Rigidbody2D>().AddForce(projectialDir * projectialSpeed);
@@ -71,7 +84,7 @@ public class EnemController : MonoBehaviour
     private GameObject getRandomProjecial()
     {
         int randIndex = 0;
-        switch (Random.Range(0, 50) % 2 == 0)
+        switch (Random.Range(0, 100)  >= 30)
         {
             case true:
                 randIndex = Random.Range(0, goodProjectialArray.Length - 1);
