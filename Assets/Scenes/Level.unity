@@ -134,8 +134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6c121593c250b4f94d7a4ac141f423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectialArray:
-  - {fileID: 1328462995122842, guid: cf6542ea170178546930a70f8bc3bb60, type: 2}
+  goodProjectialArray:
+  - {fileID: 1328462995122842, guid: 192aaa607b3ebf94ebb03bbb84961f30, type: 2}
+  badProjectialArray: []
   projectialSpawnPoint: {fileID: 650290111}
   spawnpointArray:
   - {fileID: 1070865567}
