@@ -12,66 +12,91 @@ public class EnemController : MonoBehaviour
 
     public Transform[] spawnpointArray;
 
-    private Vector3 projectialDir;
+    public AudioSource shootingSound;
+
+    public Sprite shootingSprite;
+
+    private Sprite defaultSprite;
+
+    private Vector3 projectialDir,curr,tar;
     private int projectialSpeed;
 
     private bool isMoving;
+    private float delta,factor;
 
-
-
-    private float deltaCharacter;
-    private int deltaProjectial;
 
 
     private float strifeDelta;
     void Start()
     {
-        deltaCharacter = 0.0f;
-        deltaProjectial = 0;
+        delta= 0.0f;
+        factor = 1.0f;
         strifeDelta = 0.0f;
         projectialDir = new Vector3(-1, 0, 0);
         projectialSpeed = 20000;
-        isMoving = true;
+        isMoving =false;
         transform.position = spawnpointArray[Random.Range(0, spawnpointArray.Length)].position;
-        moveCharacter();
+        defaultSprite = GetSprite();
+        MoveCharacter();
     }
 
     // Update is called once per frame
     void Update()
     {
-        deltaCharacter += Time.deltaTime;
-        int spawnRate = 7;
+        delta += Time.deltaTime* factor;
 
-        if (deltaCharacter >= 0.35f)
+        if (delta >= 1f && !isMoving)
+        {
+            if (Random.Range(0, 100) >= 40)
+            {
+                SpawnProjectial();
+                isMoving = true;
+                
+                delta = 0.0f;
+                MoveCharacter();
+            }
+
+        }
+        else if (isMoving)
         {
 
-            deltaProjectial += Random.Range(1, spawnRate);
-            if (deltaProjectial % Random.Range(1, spawnRate) == 0)
+            this.transform.position = Vector3.Lerp(curr,tar, delta);
+            if (delta >= 1f)
             {
-                spawnProjectial();
-                deltaProjectial = 0;
+                delta = 0.0f;
+                isMoving = false;
+
             }
-            moveCharacter();
-            deltaCharacter = 0.0f;
+                
         }
+            
     }
 
-    private void moveCharacter()
+    private void MoveCharacter()
     {
-        this.transform.position = Vector3.Lerp(this.transform.position, spawnpointArray[Random.Range(0, spawnpointArray.Length)].position, deltaProjectial);
+        curr = this.transform.position;
+        tar = spawnpointArray[Random.Range(0, spawnpointArray.Length)].position;
     }
 
-    private void spawnProjectial()
+    private void SpawnProjectial()
     {
-        GameObject projectial = this.getRandomProjecial();
+        SetSprite(shootingSprite);
+        this.shootingSound.Play();
+        GameObject projectial = this.GetRandomProjecial();
         GameObject g = Instantiate(projectial, projectialSpawnPoint.position, Quaternion.identity);
         g.GetComponent<Rigidbody2D>().AddForce(projectialDir * projectialSpeed);
+        Invoke("SetDefaultSprite", 0.4f);
     }
 
-    private GameObject getRandomProjecial()
+    private void SetDefaultSprite ()
+    {
+        SetSprite(defaultSprite);
+    }
+
+    private GameObject GetRandomProjecial()
     {
         int randIndex = 0;
-        switch (Random.Range(0, 50) % 2 == 0)
+        switch (Random.Range(0, 100)  >= 30)
         {
             case true:
                 randIndex = Random.Range(0, goodProjectialArray.Length - 1);
@@ -80,5 +105,15 @@ public class EnemController : MonoBehaviour
                 randIndex = Random.Range(0, badProjectialArray.Length - 1);
                 return badProjectialArray[randIndex];
         }
+    }
+
+    private Sprite GetSprite()
+    {
+        return gameObject.GetComponentInChildren<SpriteRenderer>().sprite;
+    }
+
+     private void SetSprite(Sprite sprite)
+    {
+        gameObject.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
     }
 }
