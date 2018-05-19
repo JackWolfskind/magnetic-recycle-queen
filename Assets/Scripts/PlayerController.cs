@@ -23,21 +23,19 @@ public class PlayerController : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () 
+	void Update() 
 	{
-       
             if (!onMove)
                 GetInput();
             else
             {
-               delta += Time.deltaTime*5;
+               delta += Time.deltaTime*6;
                this.transform.position = Vector3.Lerp(currentPos, targetPos, delta);
                 Debug.Log(delta);
                 if(delta >= 1)
                 {
                     onMove = false;
                     delta = 0.0f;
-                    
                 }
 
             }
@@ -70,13 +68,5 @@ public class PlayerController : MonoBehaviour
             onMove = true;
         }
             
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Projectial")
-        {
-            Destroy(collision.gameObject);
-        }
     }
 }
