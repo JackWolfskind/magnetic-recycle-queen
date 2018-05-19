@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 58563567521930598}
   - component: {fileID: 50653137230765764}
   m_Layer: 0
-  m_Name: Projectial
+  m_Name: Trash1
   m_TagString: Projectial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 5d3d11de857ce884eab2a141b362f16c, type: 3}
-  m_Color: {r: 0.19852942, g: 0.19123055, b: 0.19123055, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

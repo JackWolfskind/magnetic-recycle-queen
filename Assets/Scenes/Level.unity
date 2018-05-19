@@ -136,7 +136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goodProjectialArray:
   - {fileID: 1328462995122842, guid: 192aaa607b3ebf94ebb03bbb84961f30, type: 2}
-  badProjectialArray: []
+  badProjectialArray:
+  - {fileID: 1328462995122842, guid: cf6542ea170178546930a70f8bc3bb60, type: 2}
   projectialSpawnPoint: {fileID: 650290111}
   spawnpointArray:
   - {fileID: 1070865567}
