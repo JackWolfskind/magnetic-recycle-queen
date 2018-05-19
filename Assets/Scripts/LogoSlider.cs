@@ -5,21 +5,33 @@ using UnityEngine;
 public class LogoSlider : MonoBehaviour {
 
 	public GameObject logo;
-	public int logoSpeed;
+	public GameObject btnStartGame;
+	public float logoSpeed;
+	public AudioSource audioLogo;
 
-	private Vector2 currentPos;
-	private Vector2 targetPos;
+	private Vector3 currentPos;
+	private Vector3 targetPos;
 
 	void Start()
 	{
-		currentPos = transform.position;
+		targetPos = new Vector3(0f, 2.7f, 0f);
 	}
 	
 	void Update () 
 	{
 		//Bewege Logo zu Endposition
-		transform.position = Vector2.Lerp(transform.position, targetPos, Time.deltaTime * logoSpeed);
-		//Spiele Sound ab
-		//Zeige Startbutton an
+		if(transform.position != targetPos)
+		{
+			transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * logoSpeed);
+		}
+		else
+		{
+			//Spiele Sound ab
+
+			//Zeige Startbutton an
+			btnStartGame.SetActive(true);
+		}
+		
+		
 	}
 }
