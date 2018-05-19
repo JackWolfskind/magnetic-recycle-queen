@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EnemController : MonoBehaviour
 {
-    public GameObject[] projectialArray;
+    public GameObject[] goodProjectialArray;
+
+    public GameObject[] badProjectialArray;
 
     public Transform projectialSpawnPoint;
 
@@ -38,12 +40,13 @@ public class EnemController : MonoBehaviour
     void Update()
     {
         deltaCharacter += Time.deltaTime;
+        int spawnRate = 7;
 
-        if (deltaCharacter >= 0.4f)
+        if (deltaCharacter >= 0.35f)
         {
 
-            deltaProjectial += Random.Range(1, 5);
-            if (deltaProjectial % Random.Range(1, 5) == 0)
+            deltaProjectial += Random.Range(1, spawnRate);
+            if (deltaProjectial % Random.Range(1, spawnRate) == 0)
             {
                 spawnProjectial();
                 deltaProjectial = 0;
@@ -60,7 +63,22 @@ public class EnemController : MonoBehaviour
 
     private void spawnProjectial()
     {
-        GameObject g = Instantiate(projectialArray[0], projectialSpawnPoint.position, Quaternion.identity);
+        GameObject projectial = this.getRandomProjecial();
+        GameObject g = Instantiate(projectial, projectialSpawnPoint.position, Quaternion.identity);
         g.GetComponent<Rigidbody2D>().AddForce(projectialDir * projectialSpeed);
+    }
+
+    private GameObject getRandomProjecial()
+    {
+        int randIndex = 0;
+        switch (Random.Range(0, 50) % 2 == 0)
+        {
+            case true:
+                randIndex = Random.Range(0, goodProjectialArray.Length - 1);
+                return goodProjectialArray[randIndex];
+            default:
+                randIndex = Random.Range(0, badProjectialArray.Length - 1);
+                return badProjectialArray[randIndex];
+        }
     }
 }
