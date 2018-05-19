@@ -1250,7 +1250,7 @@ Prefab:
     - target: {fileID: 114070399463471994, guid: f383a51020718a44ca190b7fc7311577,
         type: 2}
       propertyPath: goodProjectialArray.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4053634494706580, guid: f383a51020718a44ca190b7fc7311577, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1315,6 +1315,30 @@ Prefab:
       propertyPath: badProjectialArray.Array.data[0]
       value: 
       objectReference: {fileID: 1328462995122842, guid: 192aaa607b3ebf94ebb03bbb84961f30,
+        type: 2}
+    - target: {fileID: 114070399463471994, guid: f383a51020718a44ca190b7fc7311577,
+        type: 2}
+      propertyPath: goodProjectialArray.Array.data[1]
+      value: 
+      objectReference: {fileID: 1328462995122842, guid: 6f045968a93230341919505ace3a47cd,
+        type: 2}
+    - target: {fileID: 114070399463471994, guid: f383a51020718a44ca190b7fc7311577,
+        type: 2}
+      propertyPath: goodProjectialArray.Array.data[2]
+      value: 
+      objectReference: {fileID: 1328462995122842, guid: b8a1986848c989941853dbad70462228,
+        type: 2}
+    - target: {fileID: 114070399463471994, guid: f383a51020718a44ca190b7fc7311577,
+        type: 2}
+      propertyPath: goodProjectialArray.Array.data[3]
+      value: 
+      objectReference: {fileID: 1328462995122842, guid: 007d46cfdaaeb1e488a3be9a40aa482f,
+        type: 2}
+    - target: {fileID: 114070399463471994, guid: f383a51020718a44ca190b7fc7311577,
+        type: 2}
+      propertyPath: goodProjectialArray.Array.data[4]
+      value: 
+      objectReference: {fileID: 1328462995122842, guid: 8d307ef9b96c88545b03ece549d1aa02,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f383a51020718a44ca190b7fc7311577, type: 2}
