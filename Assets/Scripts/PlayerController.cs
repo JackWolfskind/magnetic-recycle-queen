@@ -6,13 +6,14 @@ public class PlayerController : MonoBehaviour
 {
 
 	public Transform[] lanePoint;
+    public int lane;
+
     [Range(0,1)]
     private float delta;
     private bool onMove;
     private Vector3 currentPos;
     private Vector3 targetPos;
-
-    // Use this for initialization
+    
     void Start () 
 	{
         int startLane = Random.Range(0,lanePoint.Length);
@@ -22,7 +23,6 @@ public class PlayerController : MonoBehaviour
         
 	}
 	
-	// Update is called once per frame
 	void Update() 
 	{
             if (!onMove)
@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
             targetPos = lanePoint[0].position;
             currentPos = this.transform.position;
             onMove = true;
+            lane = 0;
         }
             
 
@@ -58,6 +59,7 @@ public class PlayerController : MonoBehaviour
             targetPos = lanePoint[1].position;
             currentPos = this.transform.position;
             onMove = true;
+            lane = 1;
         }
             
 
@@ -66,6 +68,7 @@ public class PlayerController : MonoBehaviour
             targetPos = lanePoint[2].position;
             currentPos = this.transform.position;
             onMove = true;
+            lane = 2;
         }
             
     }

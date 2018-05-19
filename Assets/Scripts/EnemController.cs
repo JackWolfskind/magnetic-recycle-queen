@@ -10,45 +10,50 @@ public class EnemController : MonoBehaviour
     private Vector3 projectialDir;
     private int projectialSpeed;
 
-    private bool moveCharacter;
+    private bool isMoving;
 
 
     private float deltaCharacter;
-    private float deltaProjectial;
+    private int deltaProjectial;
+
+
+    private float strifeDelta;
     void Start()
     {
         deltaCharacter = 0.0f;
-        deltaProjectial = 0.0f;
+        deltaProjectial = 0;
+        strifeDelta = 0.0f;
         projectialDir = new Vector3(-1, 0, 0);
         projectialSpeed = 20000;
-        moveCharacter = true;
-        spawnCharacter();
+        isMoving = true;
+        transform.position = spawnpointArray[Random.Range(0, spawnpointArray.Length)].position;
+        moveCharacter();
     }
 
     // Update is called once per frame
     void Update()
     {
         deltaCharacter += Time.deltaTime;
-        deltaProjectial += Time.deltaTime;
 
-        if (deltaCharacter >= 0.5) 
+        if (deltaCharacter >= 0.4f)
         {
-            deltaCharacter = 0.0f;
-            spawnCharacter();
-        }
-        if (deltaProjectial >= 1)
-        {
-            deltaProjectial = 0.0f;
-            if (deltaProjectial % Random.Range(1, 4) == 0)
+
+            deltaProjectial += (int)(Mathf.Lerp(0.1f, 0.5f, 0.1f) * 10);
+            //Debug.Log("pro: " + deltaProjectial);
+            //Debug.Log("char: " + (int)(Mathf.Lerp(0.1f, 1.0f, 0.1f) * 10));
+            if (deltaProjectial % Random.Range(1, 5) == 0)
             {
                 spawnProjectial();
+                deltaProjectial = 0;
             }
+            moveCharacter();
+            deltaCharacter = 0.0f;
         }
-
     }
 
-    private void spawnCharacter(){
-        transform.position = spawnpointArray[Random.Range(0, spawnpointArray.Length)].position;
+    private void moveCharacter()
+    {
+        this.transform.position = Vector3.Lerp(this.transform.position, spawnpointArray[Random.Range(0, spawnpointArray.Length)].position, deltaProjectial);
     }
 
     private void spawnProjectial()

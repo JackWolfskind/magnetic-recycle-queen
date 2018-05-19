@@ -673,32 +673,11 @@ Prefab:
       propertyPath: lanePoint.Array.data[2]
       value: 
       objectReference: {fileID: 1703283099}
-    - target: {fileID: 212881266879908450, guid: 7f059c7f3eb6f814db585e002629f301,
+    - target: {fileID: 114890968699601442, guid: 7f059c7f3eb6f814db585e002629f301,
         type: 2}
-      propertyPath: m_Sprite
+      propertyPath: healthSlider
       value: 
-      objectReference: {fileID: 21300000, guid: 2460a2728d5b94742bb84579a2a0bb7c,
-        type: 3}
-    - target: {fileID: 4728788783769992, guid: 7f059c7f3eb6f814db585e002629f301, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4734822138765934, guid: 7f059c7f3eb6f814db585e002629f301, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 4734822138765934, guid: 7f059c7f3eb6f814db585e002629f301, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 480
-      objectReference: {fileID: 0}
-    - target: {fileID: 4734822138765934, guid: 7f059c7f3eb6f814db585e002629f301, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4734822138765934, guid: 7f059c7f3eb6f814db585e002629f301, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -1.2
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1911409406}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f059c7f3eb6f814db585e002629f301, type: 2}
   m_IsPrefabParent: 0
@@ -1260,43 +1239,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4728788783769992, guid: 7f059c7f3eb6f814db585e002629f301,
     type: 2}
   m_PrefabInternal: {fileID: 1254388504}
---- !u!61 &1889613672
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1889613669}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 140, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 300}
-  m_EdgeRadius: 0
---- !u!114 &1889613673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1889613669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6ea27e52e8d9994c9647ea30d4a1563, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSlider: {fileID: 1911409406}
 --- !u!1 &1911409404
 GameObject:
   m_ObjectHideFlags: 0
