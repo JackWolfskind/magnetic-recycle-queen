@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: "Assets/Scenes/Hauptmen\xFC.unity"
     guid: d5b9988029baf4f4da15c222bb6b68a8
   - enabled: 1
