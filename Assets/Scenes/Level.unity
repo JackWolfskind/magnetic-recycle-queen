@@ -118,6 +118,31 @@ Transform:
   m_PrefabParentObject: {fileID: 4053634494706580, guid: f383a51020718a44ca190b7fc7311577,
     type: 2}
   m_PrefabInternal: {fileID: 1360496838}
+--- !u!61 &61257187
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 65760427}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &65760427
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,6 +153,7 @@ GameObject:
   - component: {fileID: 65760428}
   - component: {fileID: 65760430}
   - component: {fileID: 65760429}
+  - component: {fileID: 61257187}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -566,6 +592,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!4 &328575256 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4422521231722792, guid: f383a51020718a44ca190b7fc7311577,
+    type: 2}
+  m_PrefabInternal: {fileID: 1360496838}
 --- !u!1 &378833185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,6 +1242,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1483367612}
     m_Modifications:
+    - target: {fileID: 114070399463471994, guid: f383a51020718a44ca190b7fc7311577,
+        type: 2}
+      propertyPath: badProjectialArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114070399463471994, guid: f383a51020718a44ca190b7fc7311577,
+        type: 2}
+      propertyPath: goodProjectialArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4053634494706580, guid: f383a51020718a44ca190b7fc7311577, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1258,6 +1299,23 @@ Prefab:
       propertyPath: spawnpointArray.Array.data[2]
       value: 
       objectReference: {fileID: 2122390580}
+    - target: {fileID: 114070399463471994, guid: f383a51020718a44ca190b7fc7311577,
+        type: 2}
+      propertyPath: goodProjectialArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 1328462995122842, guid: cf6542ea170178546930a70f8bc3bb60,
+        type: 2}
+    - target: {fileID: 114070399463471994, guid: f383a51020718a44ca190b7fc7311577,
+        type: 2}
+      propertyPath: projectialSpawnPoint
+      value: 
+      objectReference: {fileID: 328575256}
+    - target: {fileID: 114070399463471994, guid: f383a51020718a44ca190b7fc7311577,
+        type: 2}
+      propertyPath: badProjectialArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 1328462995122842, guid: 192aaa607b3ebf94ebb03bbb84961f30,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f383a51020718a44ca190b7fc7311577, type: 2}
   m_IsPrefabParent: 0
@@ -1441,7 +1499,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1483367611}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 375, y: 192, z: -84}
+  m_LocalPosition: {x: 363, y: 192, z: -84}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 61257185}
@@ -1556,6 +1614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1565451811}
   - component: {fileID: 1565451808}
+  - component: {fileID: 1565451809}
   m_Layer: 0
   m_Name: Lane_1
   m_TagString: Untagged
@@ -1598,6 +1657,31 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!61 &1565451809
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1565451807}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!4 &1565451811
 Transform:
   m_ObjectHideFlags: 0
