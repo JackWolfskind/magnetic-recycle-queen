@@ -17,7 +17,7 @@ public class StateManager : MonoBehaviour
     public AudioSource catchSound;
 
 
-    public Sprite defaultSprite;
+    private Sprite defaultSprite;
     private int healthBarMax;
     private int trashCounter;
 

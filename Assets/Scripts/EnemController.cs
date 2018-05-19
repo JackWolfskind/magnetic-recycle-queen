@@ -16,6 +16,8 @@ public class EnemController : MonoBehaviour
 
     public Sprite shootingSprite;
 
+    public Sprite shootSprite;
+
     private Sprite defaultSprite;
 
     private Vector3 projectialDir,curr,tar;
@@ -105,6 +107,16 @@ public class EnemController : MonoBehaviour
                 randIndex = Random.Range(0, badProjectialArray.Length - 1);
                 return badProjectialArray[randIndex];
         }
+    }
+
+    private void SetShootSprite()
+    {
+
+    }
+
+    private void RemoveShootSprite()
+    {
+        
     }
 
     private Sprite GetSprite()
