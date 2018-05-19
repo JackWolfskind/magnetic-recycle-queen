@@ -12,13 +12,14 @@ public class LogoSlider : MonoBehaviour {
 
 	void Start()
 	{
-		currentPos = transform.position;
+		currentPos = new Vector2(0f, 9f);
+		targetPos = new Vector2(0f, 2.7f);
 	}
 	
 	void Update () 
 	{
 		//Bewege Logo zu Endposition
-		transform.position = Vector2.Lerp(transform.position, targetPos, Time.deltaTime * logoSpeed);
+		transform.position = Vector2.Lerp(currentPos, targetPos, Time.deltaTime * logoSpeed);
 		//Spiele Sound ab
 		//Zeige Startbutton an
 	}
