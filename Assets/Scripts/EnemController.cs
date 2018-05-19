@@ -14,6 +14,10 @@ public class EnemController : MonoBehaviour
 
     public AudioSource shootingSound;
 
+    public Sprite shootingSprite;
+
+    private Sprite defaultSprite;
+
     private Vector3 projectialDir,curr,tar;
     private int projectialSpeed;
 
@@ -32,7 +36,8 @@ public class EnemController : MonoBehaviour
         projectialSpeed = 20000;
         isMoving =false;
         transform.position = spawnpointArray[Random.Range(0, spawnpointArray.Length)].position;
-        moveCharacter();
+        defaultSprite = GetSprite();
+        MoveCharacter();
     }
 
     // Update is called once per frame
@@ -44,11 +49,11 @@ public class EnemController : MonoBehaviour
         {
             if (Random.Range(0, 100) >= 40)
             {
-                spawnProjectial();
+                SpawnProjectial();
                 isMoving = true;
                 
                 delta = 0.0f;
-                moveCharacter();
+                MoveCharacter();
             }
 
         }
@@ -67,21 +72,28 @@ public class EnemController : MonoBehaviour
             
     }
 
-    private void moveCharacter()
+    private void MoveCharacter()
     {
         curr = this.transform.position;
         tar = spawnpointArray[Random.Range(0, spawnpointArray.Length)].position;
     }
 
-    private void spawnProjectial()
+    private void SpawnProjectial()
     {
+        SetSprite(shootingSprite);
         this.shootingSound.Play();
-        GameObject projectial = this.getRandomProjecial();
+        GameObject projectial = this.GetRandomProjecial();
         GameObject g = Instantiate(projectial, projectialSpawnPoint.position, Quaternion.identity);
         g.GetComponent<Rigidbody2D>().AddForce(projectialDir * projectialSpeed);
+        Invoke("SetDefaultSprite", 0.4f);
     }
 
-    private GameObject getRandomProjecial()
+    private void SetDefaultSprite ()
+    {
+        SetSprite(defaultSprite);
+    }
+
+    private GameObject GetRandomProjecial()
     {
         int randIndex = 0;
         switch (Random.Range(0, 100)  >= 30)
@@ -93,5 +105,15 @@ public class EnemController : MonoBehaviour
                 randIndex = Random.Range(0, badProjectialArray.Length - 1);
                 return badProjectialArray[randIndex];
         }
+    }
+
+    private Sprite GetSprite()
+    {
+        return gameObject.GetComponentInChildren<SpriteRenderer>().sprite;
+    }
+
+     private void SetSprite(Sprite sprite)
+    {
+        gameObject.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
     }
 }
