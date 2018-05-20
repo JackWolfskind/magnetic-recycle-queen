@@ -11,6 +11,7 @@ public class StateManager : MonoBehaviour
     public GameObject panelGameOver;
     public Canvas endGameCanvas, uiCanvas;
     public Image gameover;
+    public GameObject enemy;
 
     public Sprite catchSprite;
 
@@ -92,6 +93,9 @@ public class StateManager : MonoBehaviour
             Destroy(collision.gameObject);
             // Punkte erhöhen sich und Text wird geupdated
             points.currpoints+= 100;
+
+            if (points.currpoints % 500 == 0)
+                enemy.GetComponent<EnemController>().IncSpeed();
             points.TextUpdate();
 
             //Explosion wird abgespielt
