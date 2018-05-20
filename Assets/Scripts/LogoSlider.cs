@@ -7,14 +7,18 @@ public class LogoSlider : MonoBehaviour {
 	public GameObject logo;
 	public GameObject btnStartGame;
 	public float logoSpeed;
-	public AudioSource audioLogo;
+	public AudioSource audioBG;
+	public float audioStartTime;
 
 	private Vector3 currentPos;
 	private Vector3 targetPos;
 
 	void Start()
-	{
+	{	
+		//Logo Startposition
 		targetPos = new Vector3(0f, 2.7f, 0f);
+		//Spiele Sound ab wenn Logo steht
+		Invoke("MusikStarten", audioStartTime);
 	}
 	
 	void Update () 
@@ -26,12 +30,14 @@ public class LogoSlider : MonoBehaviour {
 		}
 		else
 		{
-			//Spiele Sound ab
-
 			//Zeige Startbutton an
 			btnStartGame.SetActive(true);
 		}
-		
-		
+	}
+
+	//Audio wird gestartet
+	void MusikStarten()
+	{
+		audioBG.Play();
 	}
 }

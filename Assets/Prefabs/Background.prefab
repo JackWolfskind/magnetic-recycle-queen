@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4739917282709466}
   - component: {fileID: 212365072198670396}
-  - component: {fileID: 111816706674606168}
+  - component: {fileID: 95074707777698696}
   m_Layer: 0
   m_Name: Clouds
   m_TagString: Untagged
@@ -320,6 +320,24 @@ Transform:
   m_Father: {fileID: 224946676711228152}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &95074707777698696
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1017691597763638}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95106985833935828
 Animator:
   serializedVersion: 3
@@ -374,21 +392,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!111 &111816706674606168
-Animation:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1017691597763638}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 94559f5a47abf0547b79f5e9b7d178ca, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 94559f5a47abf0547b79f5e9b7d178ca, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!212 &212107801775765628
 SpriteRenderer:
   m_ObjectHideFlags: 1

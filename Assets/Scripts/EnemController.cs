@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemController : MonoBehaviour
 {
+    public Options options;
     public GameObject[] goodProjectialArray;
 
     public GameObject[] badProjectialArray;
@@ -18,25 +19,31 @@ public class EnemController : MonoBehaviour
 
     public Sprite shootSprite;
 
+    private float Speed;
+
     private Sprite defaultSprite;
 
-    private Vector3 projectialDir,curr,tar;
+    private Vector3 projectialDir, curr, tar;
     private int projectialSpeed;
 
     private bool isMoving;
-    private float delta,factor;
+
+    private float delta, factor;
+
+    private float shootigCount;
 
 
 
     private float strifeDelta;
     void Start()
     {
-        delta= 0.0f;
+        delta = 0.0f;
         factor = 1.0f;
         strifeDelta = 0.0f;
         projectialDir = new Vector3(-1, 0, 0);
         projectialSpeed = 20000;
-        isMoving =false;
+        isMoving = false;
+        shootigCount = 0.5f;
         transform.position = spawnpointArray[Random.Range(0, spawnpointArray.Length)].position;
         defaultSprite = GetSprite();
         MoveCharacter();
@@ -47,7 +54,7 @@ public class EnemController : MonoBehaviour
     {
         delta += Time.deltaTime* factor;
 
-        if (delta >= 1f && !isMoving)
+        if (delta >= options.speed && !isMoving)
         {
             if (Random.Range(0, 100) >= 40)
             {
@@ -90,7 +97,7 @@ public class EnemController : MonoBehaviour
         Invoke("SetDefaultSprite", 0.4f);
     }
 
-    private void SetDefaultSprite ()
+    private void SetDefaultSprite()
     {
         SetSprite(defaultSprite);
     }
@@ -98,7 +105,7 @@ public class EnemController : MonoBehaviour
     private GameObject GetRandomProjecial()
     {
         int randIndex = 0;
-        switch (Random.Range(0, 100)  >= 30)
+        switch (Random.Range(0, 100) >= 30)
         {
             case true:
                 randIndex = Random.Range(0, goodProjectialArray.Length - 1);
