@@ -7,14 +7,14 @@ public class MusikManager : MonoBehaviour {
 
 	public Slider lautstaerke;
 
-	void Start()
+	void Awake()
 	{
-		AudioListener.volume = PlayerPrefs.GetFloat("Volumen");
+		lautstaerke.value = PlayerPrefs.GetFloat("Volumen", 0.5f);
 	}
 	
 	void Update () 
 	{
 		AudioListener.volume = lautstaerke.value;
-		PlayerPrefs.SetFloat("Volumen", AudioListener.volume);
+		PlayerPrefs.SetFloat("Volumen", lautstaerke.value);
 	}
 }
