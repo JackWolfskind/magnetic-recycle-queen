@@ -7,6 +7,8 @@ public class EnemController : MonoBehaviour
 {
     public Options options;
 
+    public GameObject healBanana;
+
     public GameObject[] goodProjectialArray;
 
     public GameObject[] badProjectialArray;
@@ -26,9 +28,9 @@ public class EnemController : MonoBehaviour
     private Sprite defaultSprite;
 
     private Vector3 projectialDir, curr, tar;
-    private int projectialSpeed;
+    private int projectialSpeed,objectSpawnChance;
 
-    private bool isMoving;
+    private bool isMoving, changeDifficulty;
 
     private float delta,shootigCount,swapSpeed,spawnChance;
 
@@ -38,6 +40,7 @@ public class EnemController : MonoBehaviour
     private float strifeDelta;
     void Start()
     {
+        changeDifficulty = true;
         swapSpeed = 0.5f;
         spawnChance = 30;
         delta = 0.0f;  
@@ -107,16 +110,31 @@ public class EnemController : MonoBehaviour
     private GameObject GetRandomProjecial()
     {
         int randIndex = 0;
-        
-        switch (Random.Range(0, 100) >= spawnChance)
+        objectSpawnChance = Random.Range(0, 100);
+        if (objectSpawnChance >= spawnChance)
         {
-            case true:
-                randIndex = Random.Range(0, goodProjectialArray.Length - 1);
-                return goodProjectialArray[randIndex];
-            default:
-                randIndex = Random.Range(0, badProjectialArray.Length - 1);
-                return badProjectialArray[randIndex];
+            randIndex = Random.Range(0, goodProjectialArray.Length - 1);
+            return goodProjectialArray[randIndex];
         }
+        else if (objectSpawnChance <= spawnChance && objectSpawnChance >= 5)
+        {
+            randIndex = Random.Range(0, badProjectialArray.Length - 1);
+            return badProjectialArray[randIndex];
+        }
+        else
+            return healBanana;
+
+        /*
+            switch (Random.Range(0, 100) >= spawnChance)
+            {
+                case true:
+                    randIndex = Random.Range(0, goodProjectialArray.Length - 1);
+                    return goodProjectialArray[randIndex];
+                default:
+                    randIndex = Random.Range(0, badProjectialArray.Length - 1);
+                    return badProjectialArray[randIndex];
+            }
+        */
     }
 
     private void SetShootSprite()
@@ -140,12 +158,17 @@ public class EnemController : MonoBehaviour
     }
     public void IncSpeed()
     {
-        projectialSpeed += 2000;
-        swapSpeed += .25f;
+        projectialSpeed += 1500;
+        swapSpeed += .15f;
 
+        if(changeDifficulty)
         spawnChance -= 5;
 
-        if(spawnChance <= 15)
+        if(changeDifficulty && spawnChance <= 15)
+        {
             spawnChance = 15;
+            changeDifficulty = false;
+        }
+            
     }
 }

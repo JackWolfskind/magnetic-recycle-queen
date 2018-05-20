@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BadProjectial
   - Projectial
+  - Banana
   layers:
   - Default
   - TransparentFX

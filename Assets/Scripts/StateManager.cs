@@ -33,12 +33,13 @@ public class StateManager : MonoBehaviour
     void Start()
     {
 
-        healthBarMax = 100;
+        healthBarMax = 120;
         trashCounter = 0;
         defaultSprite = GetSprite();
         if (healthSlider != null)
             healthSlider.maxValue = healthBarMax;
 
+        healthSlider.value = healthBarMax;
         for (int i = 0; i < pSystem.Length; i++)
         {
             pSystem[i] = GetComponent<ParticleSystem>();
@@ -47,7 +48,10 @@ public class StateManager : MonoBehaviour
         pController = GetComponent<PlayerController>();
         points = GetComponent<PointController>();
     }
-
+    public void Heal(int healthValue)
+    {
+        healthSlider.value += healthValue;
+    }
     public void Damage(int dmgValue)
     {
 
@@ -92,7 +96,7 @@ public class StateManager : MonoBehaviour
             catchSound.Play();
             Destroy(collision.gameObject);
             // Punkte erhöhen sich und Text wird geupdated
-            points.currpoints+= 100;
+            points.currpoints += 100;
 
             if (points.currpoints % 500 == 0)
                 enemy.GetComponent<EnemController>().IncSpeed();
@@ -105,6 +109,12 @@ public class StateManager : MonoBehaviour
         if (collision.tag == "BadProjectial")
         {
             Damage(20);
+        }
+
+        if (collision.tag == "Banana")
+        {
+            Heal(40);
+            Destroy(collision.gameObject);
         }
     }
 
