@@ -91,7 +91,7 @@ public class StateManager : MonoBehaviour
             catchSound.Play();
             Destroy(collision.gameObject);
             // Punkte erhöhen sich und Text wird geupdated
-            points.currpoints++;
+            points.currpoints+= 100;
             points.TextUpdate();
 
             //Explosion wird abgespielt
