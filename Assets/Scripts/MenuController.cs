@@ -14,18 +14,6 @@ public class MenuController : MonoBehaviour {
 		SceneManager.LoadScene(1);
 	}
 
-	public void OpenCredits()
-	{
-		if(!credits.active)
-		{
-			credits.SetActive(true);
-		}
-		else
-		{
-			credits.SetActive(false);
-		}
-		
-	}
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
