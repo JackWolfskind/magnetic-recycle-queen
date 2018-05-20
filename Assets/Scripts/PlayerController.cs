@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
                 GetInput();
             else
             {
-               delta += Time.deltaTime*6;
+               delta += Time.deltaTime*10;
                this.transform.position = Vector3.Lerp(currentPos, targetPos, delta);
                
                 if(delta >= 1)

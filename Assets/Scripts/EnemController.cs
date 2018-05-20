@@ -9,6 +9,8 @@ public class EnemController : MonoBehaviour
 
     public GameObject healBanana;
 
+    public GameObject monkey;
+
     public GameObject[] goodProjectialArray;
 
     public GameObject[] badProjectialArray;
@@ -27,10 +29,13 @@ public class EnemController : MonoBehaviour
 
     private Sprite defaultSprite;
 
+    private Animator anim;
+    private Animation animat;
+
     private Vector3 projectialDir, curr, tar;
     private int projectialSpeed,objectSpawnChance;
 
-    private bool isMoving, changeDifficulty;
+    private bool isMoving, changeDifficulty,useBanana;
 
     private float delta,shootigCount,swapSpeed,spawnChance;
 
@@ -40,6 +45,9 @@ public class EnemController : MonoBehaviour
     private float strifeDelta;
     void Start()
     {
+        useBanana = false;
+        animat = monkey.GetComponent<Animation>();
+        anim = monkey.GetComponent<Animator>();      
         changeDifficulty = true;
         swapSpeed = 0.5f;
         spawnChance = 30;
@@ -58,6 +66,7 @@ public class EnemController : MonoBehaviour
     void Update()
     {
         delta += Time.deltaTime* swapSpeed;
+
 
         if (delta >= options.speed && !isMoving)
         {
@@ -116,13 +125,28 @@ public class EnemController : MonoBehaviour
             randIndex = Random.Range(0, goodProjectialArray.Length - 1);
             return goodProjectialArray[randIndex];
         }
-        else if (objectSpawnChance <= spawnChance && objectSpawnChance >= 5)
+        else if (objectSpawnChance <= spawnChance && objectSpawnChance >= 2)
         {
             randIndex = Random.Range(0, badProjectialArray.Length - 1);
             return badProjectialArray[randIndex];
         }
-        else
+        else if (!useBanana)
+        {
+            useBanana = true;
+            animat.Play();
+            //anim.SetBool("MoveIn", true);
+            //anim.SetBool("MoveIn", false);
             return healBanana;
+        }
+        else
+        {
+            useBanana = false;
+            randIndex = Random.Range(0, badProjectialArray.Length - 1);
+            return badProjectialArray[randIndex];
+        }
+            
+
+
 
         /*
             switch (Random.Range(0, 100) >= spawnChance)
