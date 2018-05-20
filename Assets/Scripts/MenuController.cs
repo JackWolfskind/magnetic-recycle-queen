@@ -26,4 +26,13 @@ public class MenuController : MonoBehaviour {
 		}
 		
 	}
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

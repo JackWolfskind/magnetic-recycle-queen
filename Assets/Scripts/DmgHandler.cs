@@ -21,7 +21,7 @@ public class DmgHandler : MonoBehaviour {
          if(collision.tag == "Projectial")
         {
             Destroy(collision.gameObject);
-            state.damage(dmgValue);
+            state.Damage(dmgValue);
         }
         else
         {

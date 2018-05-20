@@ -9,6 +9,8 @@ public class StateManager : MonoBehaviour
     public Slider healthSlider;
     public ParticleSystem[] pSystem;
     public GameObject panelGameOver;
+    public Canvas endGameCanvas,uiCanvas;
+    public Image gameover;
 
     public Sprite catchSprite;
 
@@ -26,6 +28,7 @@ public class StateManager : MonoBehaviour
 
     void Start()
     {
+
         healthBarMax = 100;
         trashCounter = 0;
         defaultSprite = GetSprite();
@@ -36,23 +39,22 @@ public class StateManager : MonoBehaviour
         {
             pSystem[i] = GetComponent<ParticleSystem>();
         }
-
+      
         pController = GetComponent<PlayerController>();
         points = GetComponent<PointController>();
     }
 
-    public void damage(int dmgValue)
+    public void Damage(int dmgValue)
     {
 
         healthSlider.value -= dmgValue;
         SetSprite(damageSprite);
+        
         Invoke("SetDefaultSprite", 0.5f);
         if (healthSlider.value <= 0)
         {
             //Game Over ausführen
-            panelGameOver.SetActive(true);
-            //Hauptmenü laden nach 2 Sekunden
-            Invoke("MenuLaden", 2f);
+            GameOver();     
         }
     }
 
@@ -74,7 +76,7 @@ public class StateManager : MonoBehaviour
 
         if (collision.tag == "BadProjectial")
         {
-            damage(20);
+            Damage(20);
         }
     }
 
@@ -96,5 +98,12 @@ public class StateManager : MonoBehaviour
     private void SetDefaultSprite()
     {
         SetSprite(defaultSprite);
+    }
+    private void GameOver()
+    {
+        endGameCanvas.enabled = true;
+        gameover.enabled = true;
+        uiCanvas.enabled = false;
+        Time.timeScale = 0;
     }
 }
