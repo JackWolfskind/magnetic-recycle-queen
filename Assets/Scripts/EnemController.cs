@@ -140,12 +140,12 @@ public class EnemController : MonoBehaviour
     }
     public void IncSpeed()
     {
-        projectialSpeed += 1000;
+        projectialSpeed += 2000;
         swapSpeed += .25f;
 
         spawnChance -= 5;
 
-        if (spawnChance <= 10)
-            spawnChance = 10;
+        if(spawnChance <= 15)
+            spawnChance = 15;
     }
 }
