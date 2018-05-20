@@ -9,7 +9,7 @@ public class StateManager : MonoBehaviour
     public Slider healthSlider;
     public ParticleSystem[] pSystem;
     public GameObject panelGameOver;
-    public Canvas endGameCanvas,uiCanvas;
+    public Canvas endGameCanvas, uiCanvas;
     public Image gameover;
 
     public Sprite catchSprite;
@@ -18,6 +18,9 @@ public class StateManager : MonoBehaviour
 
     public AudioSource catchSound;
 
+    public Sprite[] trashStages;
+
+    public GameObject TrashSpawn;
 
     private Sprite defaultSprite;
     private int healthBarMax;
@@ -39,7 +42,7 @@ public class StateManager : MonoBehaviour
         {
             pSystem[i] = GetComponent<ParticleSystem>();
         }
-      
+
         pController = GetComponent<PlayerController>();
         points = GetComponent<PointController>();
     }
@@ -49,12 +52,33 @@ public class StateManager : MonoBehaviour
 
         healthSlider.value -= dmgValue;
         SetSprite(damageSprite);
-        
+
         Invoke("SetDefaultSprite", 0.5f);
+        UpdateTrashStages();
         if (healthSlider.value <= 0)
         {
             //Game Over ausführen
-            GameOver();     
+            GameOver();
+        }
+    }
+
+    private void UpdateTrashStages()
+    {
+        if (healthSlider.value >= 100)
+        {
+            setTrashSpawnSprite(trashStages[0]);
+        }
+        else if (healthSlider.value >= 75)
+        {
+            setTrashSpawnSprite(trashStages[1]);
+        }
+        else if (healthSlider.value >= 50)
+        {
+            setTrashSpawnSprite(trashStages[2]);
+        }
+        else if (healthSlider.value <= 25)
+        {
+            setTrashSpawnSprite(trashStages[3]);
         }
     }
 
@@ -95,6 +119,15 @@ public class StateManager : MonoBehaviour
         gameObject.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
     }
 
+    private Sprite getTrashSpawnSprite ()
+    {
+        return TrashSpawn.GetComponent<SpriteRenderer>().sprite;
+    }
+    private void setTrashSpawnSprite (Sprite newSprite)
+    {
+        TrashSpawn.GetComponent<SpriteRenderer>().sprite = newSprite;
+    }
+
     private void SetDefaultSprite()
     {
         SetSprite(defaultSprite);
@@ -106,4 +139,5 @@ public class StateManager : MonoBehaviour
         uiCanvas.enabled = false;
         Time.timeScale = 0;
     }
+
 }
