@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemController : MonoBehaviour
 {
     public Options options;
+
     public GameObject[] goodProjectialArray;
 
     public GameObject[] badProjectialArray;
@@ -28,20 +30,20 @@ public class EnemController : MonoBehaviour
 
     private bool isMoving;
 
-    private float delta, factor;
+    private float delta,shootigCount,swapSpeed,spawnChance;
 
-    private float shootigCount;
 
 
 
     private float strifeDelta;
     void Start()
     {
-        delta = 0.0f;
-        factor = 1.0f;
+        swapSpeed = 0.5f;
+        spawnChance = 30;
+        delta = 0.0f;  
         strifeDelta = 0.0f;
         projectialDir = new Vector3(-1, 0, 0);
-        projectialSpeed = 20000;
+        projectialSpeed = 15000;
         isMoving = false;
         shootigCount = 0.5f;
         transform.position = spawnpointArray[Random.Range(0, spawnpointArray.Length)].position;
@@ -52,7 +54,7 @@ public class EnemController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        delta += Time.deltaTime* factor;
+        delta += Time.deltaTime* swapSpeed;
 
         if (delta >= options.speed && !isMoving)
         {
@@ -105,7 +107,8 @@ public class EnemController : MonoBehaviour
     private GameObject GetRandomProjecial()
     {
         int randIndex = 0;
-        switch (Random.Range(0, 100) >= 30)
+        
+        switch (Random.Range(0, 100) >= spawnChance)
         {
             case true:
                 randIndex = Random.Range(0, goodProjectialArray.Length - 1);
@@ -134,5 +137,15 @@ public class EnemController : MonoBehaviour
      private void SetSprite(Sprite sprite)
     {
         gameObject.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
+    }
+    public void IncSpeed()
+    {
+        projectialSpeed += 1000;
+        swapSpeed += .25f;
+
+        spawnChance -= 5;
+
+        if (spawnChance <= 10)
+            spawnChance = 10;
     }
 }

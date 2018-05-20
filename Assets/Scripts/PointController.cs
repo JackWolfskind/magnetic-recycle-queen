@@ -9,7 +9,7 @@ public class PointController : MonoBehaviour {
 
 	public Text txtPoints;
     public Text endScreenText;
-	
+
 	public void TextUpdate () 
 	{      
         txtPoints.text = endScreenText.text = currpoints.ToString() + " Punkte";
